@@ -4,7 +4,13 @@ import SnapshotTesting
 
 
 class SomeTests: XCTestCase {
-    func test_1() async throws {
+    func test_crash() async throws {
+        // This crashes with `Current context must not be nil`
+        assertSnapshot(of: "foo", as: .lines)
+    }
+
+    func test_no_crash() throws {
+        // This does not crash
         assertSnapshot(of: "foo", as: .lines)
     }
 
