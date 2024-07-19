@@ -1,7 +1,10 @@
 import XCTest
 
+import SnapshotTesting
+
+
 class SomeTests: XCTestCase {
     func test_1() async throws {
-        XCTAssert(true)
+        assertSnapshot(of: "foo", as: .lines)
     }
 }
